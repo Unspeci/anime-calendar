@@ -1,4 +1,4 @@
-    var target_sub = "animecalendar"
+var target_sub = "animecalendar"
 var post_count = 5
 async function update_image(){
     reddit.new(target_sub).limit(post_count).fetch(async (res)=>{
@@ -8,6 +8,7 @@ async function update_image(){
             if(!res.data.children[index].data.is_self){
                 console.log("Found a link post")
                 console.log(res.data.children[index].data.is_video)
+                document.getElementById("credit").href = "https://reddit.com" +  res.data.children[index].data.permalink;
                 if(res.data.children[index].data.is_video){
                     document.getElementById("title").innerHTML = res.data.children[index].data.title
                     if(res.data.children[index].data.domain == "v.redd.it"){
@@ -38,4 +39,4 @@ async function update_image(){
     })
 }
 update_image()
-setInterval(update_image, 3600000)
+setInterval(update_image, 20000)

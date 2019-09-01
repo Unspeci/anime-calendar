@@ -23,3 +23,8 @@ html, body{
     min-width: 100%;
     object-fit: contain;
 }
+#credit {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
