@@ -12,7 +12,7 @@ async function update_image(){
                     document.getElementById("title").innerHTML = res.data.children[index].data.title
                     if(res.data.children[index].data.domain == "v.redd.it"){
                         document.getElementById("video").src = res.data.children[index].data.media.reddit_video.dash_url
-                        var url = res.data.children[index].data.media.reddit_video.dash_url;
+                        var url = "https://cors-anywhere.herokuapp.com/" +  res.data.children[index].data.media.reddit_video.dash_url;
                         var player = dashjs.MediaPlayer().create();
                         player.initialize(document.querySelector("#video"), url, true);
                     }
