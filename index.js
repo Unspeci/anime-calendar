@@ -25,7 +25,12 @@ async function update_image(){
                 }
                 else{
                     document.getElementById("title").innerHTML = res.data.children[index].data.title
-                    document.getElementById("image").src = res.data.children[index].data.url
+                    if(res.data.children[index].data.domain == "imgur.com" && !res.data.children[index].data.url.endsWith(".png")){
+                      document.getElementById("image").src = res.data.children[index].data.url + ".png"
+                    }
+                    else {
+                      document.getElementById("image").src = res.data.children[index].data.url
+                    }
                     document.getElementById("image").style.display="inline-block"
                     document.getElementById("video").style.display="none"
                 }
